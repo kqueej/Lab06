@@ -56,22 +56,43 @@
 //     return age >= 18;
 // }
 
-class Program {
-    static void Main() {
-        Console.WriteLine(Add(2, 3));  // вызовет первый вариант: int Add(int, int) → 5
-        Console.WriteLine(Add(2.5, 3.5)); // вызовет второй вариант: double Add(double, double) → 6.0
-        Console.WriteLine(Add(2, 3, 4)); // вызовет третий вариант: int Add(int, int, int) → 9
-    }
+// class Program {
+//     static void Main() {
+//         Console.WriteLine(Add(2, 3));  // вызовет первый вариант: int Add(int, int) → 5
+//         Console.WriteLine(Add(2.5, 3.5)); // вызовет второй вариант: double Add(double, double) → 6.0
+//         Console.WriteLine(Add(2, 3, 4)); // вызовет третий вариант: int Add(int, int, int) → 9
+//     }
 
-    static int Add(int a, int b) {
-        return a + b;
-    }
+//     static int Add(int a, int b) {
+//         return a + b;
+//     }
 
-    static double Add(double a, double b) {
-        return a + b;
-    }
+//     static double Add(double a, double b) {
+//         return a + b;
+//     }
 
-    static int Add(int a, int b, int c) {
-        return a + b + c;
-    }
+//     static int Add(int a, int b, int c) {
+//         return a + b + c;
+//     }
+// }
+
+Console.WriteLine();
+Console.WriteLine("Методы вызывают методы");
+PrintNumberInfo(7);
+PrintNumberInfo(10);
+PrintNumberInfo(15);
+
+Console.WriteLine();
+Console.WriteLine("Методы + цикл");
+for (int i = 1; i <= 5; i++) {
+    PrintNumberInfo(i);
+}
+
+bool IsEven(int number) {
+    return number % 2 == 0;
+}
+
+void PrintNumberInfo(int number) {
+    string parity = IsEven(number) ? "чётное" : "нечётное";
+    Console.WriteLine($"{number} — {parity} число");
 }
