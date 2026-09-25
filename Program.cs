@@ -76,23 +76,85 @@
 //     }
 // }
 
-Console.WriteLine();
-Console.WriteLine("Методы вызывают методы");
-PrintNumberInfo(7);
-PrintNumberInfo(10);
-PrintNumberInfo(15);
+// Console.WriteLine();
+// Console.WriteLine("Методы вызывают методы");
+// PrintNumberInfo(7);
+// PrintNumberInfo(10);
+// PrintNumberInfo(15);
 
-Console.WriteLine();
-Console.WriteLine("Методы + цикл");
-for (int i = 1; i <= 5; i++) {
-    PrintNumberInfo(i);
+// Console.WriteLine();
+// Console.WriteLine("Методы + цикл");
+// for (int i = 1; i <= 5; i++) {
+//     PrintNumberInfo(i);
+// }
+
+// bool IsEven(int number) {
+//     return number % 2 == 0;
+// }
+
+// void PrintNumberInfo(int number) {
+//     string parity = IsEven(number) ? "чётное" : "нечётное";
+//     Console.WriteLine($"{number} — {parity} число");
+// }
+
+
+// Задание 1
+// Console.WriteLine($"1 m = {MetersF(1):F2} ft");
+// Console.WriteLine($"5 m = {MetersF(5):F2} ft");
+
+// Console.WriteLine($"0 C = {CelsiusC(0):F2} F");
+// Console.WriteLine($"20 C = {CelsiusC(20):F2} F");
+
+// double MetersF(double meters)
+// {
+//     return meters * 3.28084;
+// }
+
+// double CelsiusC(double celsius)
+// {
+//     return celsius * 9 / 5 + 32;
+// }
+
+
+// Задание 2
+Console.Write("Enter password: ");
+string password = Console.ReadLine();
+
+Console.WriteLine($"Min length: {HasMinLength(password, 8)}");
+Console.WriteLine($"conyains a digit: {HasDigit(password)}");
+Console.WriteLine($"contains an uppercase letter: {HasUpperCase(password)}");
+Console.WriteLine($"is the password valid?: {IsPasswordValid(password)}");
+
+bool HasMinLength(string password, int minLength)
+{
+    return password.Length >= minLength;
 }
 
-bool IsEven(int number) {
-    return number % 2 == 0;
+bool HasDigit(string password)
+{
+    foreach (char letter in password)
+    {
+        if (char.IsDigit(letter))
+        {
+            return true;
+        }
+    }
+    return false;
 }
 
-void PrintNumberInfo(int number) {
-    string parity = IsEven(number) ? "чётное" : "нечётное";
-    Console.WriteLine($"{number} — {parity} число");
+bool HasUpperCase(string password)
+{
+    foreach (char letter in password)
+    {
+        if (char.IsUpper(letter))
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+bool IsPasswordValid(string password)
+{
+    return HasMinLength(password, 8) && HasDigit(password) && HasUpperCase(password);
 }
